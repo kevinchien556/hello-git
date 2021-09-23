@@ -135,16 +135,146 @@ $ git branch <分支名>
 $ git switch <分支名>
 ```
 
-### merge:
+### merge
+
+用法:在別的分支開發完功能並 commit 後，切換回主分支，merge 副分支。
+
+`1.此時主分支會新增副分支內新增的內容，但副分支的內容不會更動。`
+
+`2.若合併完出現視窗請你輸入原因並被鎖住，可以直接輸入 ":wq" 後按enter強制寫入。`
+
+`3.若出現衝突要手動解掉，pull request時出現衝突的話先回副分支merge主分支後再push一次。`
+
+```bash
+$ git switch main
+
+$ git merge <副分支>
+```
+
+---
+
+## 5.在 github 上建立 repo
+
+```bash
+$ git remote add origin
+$ git遠端repo的網址
+```
+
+- remote: 遠端
+- add: 增加
+- origin:遠端的名字(不建議修改)
+
+```bash
+$ git push -u origin main
+```
+
+推送程式碼到遠端，推到`origin`這個遠端，要推的分支是`main`。
+
+---
+
+## 6.Node.js
+
+### 安裝 nodejs:
+
+- Current: 最新的、目前的
+- LTS: long-term support 長期維護版
+  - Active LTS: 正在積極維護跟升級中的版本
+  - Maintenance LTS: 維護中的 LTS 直到生命週期結尾
+- EOL: end of life
+
+```bash
+# 列出可以安裝的版本
+$ nvm ls-remote 14
+
+# windows版本
+$ nvm list available
+
+# 安裝最新的 LTS(long-term support 長期維護版)
+$ nvm install 14.17.6
+
+# 切換版本
+$ nvm use 14.17.6
+
+# 確認目前 node 的版本
+$ node -v
+
+# 列出你電腦裡 node 的版本
+$ nvm ls
+# windows 用 list
+$ nvm list
+
+# 設定預設版本
+$ nvm alias default 14.17.6
+```
+
+---
+
+## 7.寫第一個 nodejs 程式
+
+1.在 github 上建立專案(ex:hello-node)
+
+2.找到這個專案的 url，在 home 目錄下 clone 這個專案
+
+```bash
+$ cd ~
+$ git clone <url>
+```
+
+3.用 vs code 開啟專案資料夾，建立 practice 資料夾
+
+4.在 practice 內建立 sum.js
+
+5.測試結果
+
+```bash
+$ cd practice
+$ node sum.js
+
+# 不切換資料夾
+$ node practice/sum.js
+```
+
+## 補充
+
+### 參考資料
+
+- [Git 10 週年，Linux 之父談他是怎麼在 10 天內開發完成](https://buzzorange.com/techorange/2015/04/09/linus-torvalds-talked-about-git/)
+- [22 歲開發出 Linux 的 FullStack 天才：Linus Torvalds 的故事](https://www.techapple.com/archives/19224)
+
+- [Git 與 Github 版本控制基本指令與操作入門教學](https://blog.techbridge.cc/2018/01/17/learning-programming-and-coding-with-python-git-and-github-tutorial/)
 
 ---
 
 ## 常用指令：
 
 ```bash
-# 確認git版本/是否已安裝
-$ git --version
+# 切換目錄
+$ cd 資料夾名
 
-# 開始管理此資料夾的專案
-$ git init
+# 顯示目前路徑
+$ pwd
+
+# 列出目前資料夾內檔案
+$ ls
+
+# 列出目前資料夾內檔案(包含隱藏的/完整格式/綜合)
+$ ls -a
+$ ls -l
+$ ls -al
+
+# 建立新資料夾
+$ mkdir 新資料夾
+
+# 建立新檔案
+$ touch new.txt
+
+# 複製/移動/刪除檔案
+$ copy/mv/rm
+
+# 清除畫面
+$ clear
+
+#印出檔案內容/編輯文字檔
+$ cat/nano test.txt
+
 ```
